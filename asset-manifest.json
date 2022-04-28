@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/gross-mark/static/css/main.3e60b4e8.css",
+    "main.js": "/gross-mark/static/js/main.74144e23.js",
+    "static/media/slider_image_2_mobile.png": "/gross-mark/static/media/slider_image_2_mobile.be7f743285147c07a2a5.png",
+    "static/media/EuclidCircularB-Medium.woff": "/gross-mark/static/media/EuclidCircularB-Medium.5313021566c3c955740a.woff",
+    "static/media/EuclidCircularB-Regular.woff": "/gross-mark/static/media/EuclidCircularB-Regular.b8a63e45c1535cf2f0ac.woff",
+    "static/media/captcha_icon.svg": "/gross-mark/static/media/captcha_icon.5452dc00c21c3a0801de3556e11b9d63.svg",
+    "static/media/EuclidCircularB-Medium.woff2": "/gross-mark/static/media/EuclidCircularB-Medium.5818317ac73da512a264.woff2",
+    "static/media/EuclidCircularB-Regular.woff2": "/gross-mark/static/media/EuclidCircularB-Regular.1b155958624e54e2e050.woff2",
+    "static/media/map_placemark.svg": "/gross-mark/static/media/map_placemark.f5275ee826fc2f8d799340feb76fdb48.svg",
+    "static/media/logo_icon.svg": "/gross-mark/static/media/logo_icon.ab42392ee9ca725e076d4f2d7dc3b47f.svg",
+    "static/media/vk_social_icon.svg": "/gross-mark/static/media/vk_social_icon.c1d6728c121d5d9ad0fc1f11bc764c8d.svg",
+    "static/media/close_icon.svg": "/gross-mark/static/media/close_icon.8ee23116c08ab4aded85283e5ebb5c92.svg",
+    "index.html": "/gross-mark/index.html",
+    "static/media/attach-file-icon.svg": "/gross-mark/static/media/attach-file-icon.0aadae2023f627a3024711d05ab4ba6a.svg",
+    "static/media/facebook_social_icon.svg": "/gross-mark/static/media/facebook_social_icon.834434f3bddf6fea067e72a0762d27a7.svg",
+    "static/media/banner_left_arrow.svg": "/gross-mark/static/media/banner_left_arrow.56d25ad41016b95fa118.svg",
+    "static/media/banner_right_arrow.svg": "/gross-mark/static/media/banner_right_arrow.bfce52524dd3ae6fd31b.svg",
+    "static/media/select_arrow.svg": "/gross-mark/static/media/select_arrow.b1fe66926b8cd9b1cde5374531830157.svg",
+    "static/media/banner_right_arrow_active.svg": "/gross-mark/static/media/banner_right_arrow_active.0304f6f665fe0288c3f7.svg",
+    "static/media/banner_left_arrow_active.svg": "/gross-mark/static/media/banner_left_arrow_active.1d343e517cb26ee8bedd.svg",
+    "static/media/map_icon_asc.svg": "/gross-mark/static/media/map_icon_asc.a98ff0596b6e619955585f5b8414e8e5.svg",
+    "static/media/check_icon_green.svg": "/gross-mark/static/media/check_icon_green.18152fd60f7d9022c647707623bd6c46.svg",
+    "static/media/check_icon_black.svg": "/gross-mark/static/media/check_icon_black.4c3d09d2369384d218a5.svg",
+    "static/media/map_icon_desc.svg": "/gross-mark/static/media/map_icon_desc.b412a163804353df2aa04d91cbd68a6e.svg",
+    "static/media/radiobutton-dott.svg": "/gross-mark/static/media/radiobutton-dott.b745089d84570913ea85.svg",
+    "main.3e60b4e8.css.map": "/gross-mark/static/css/main.3e60b4e8.css.map",
+    "main.74144e23.js.map": "/gross-mark/static/js/main.74144e23.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e60b4e8.css",
+    "static/js/main.74144e23.js"
+  ]
+}
