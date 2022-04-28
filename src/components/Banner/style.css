@@ -1,0 +1,297 @@
+.banner {
+    background: #F5F5F5;
+    margin-bottom: 72px;
+}
+
+ul.control-dots {
+    padding-top: 5px !important;
+    padding-left: 1px !important;
+    display: flex;
+    bottom: 25px !important;
+    width: 88px !important;
+    height: 44px !important;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.carousel .control-dots .dot {
+    border-radius: 0;
+    width: 34px;
+    height: 31px;
+    opacity: 1;
+    box-shadow: none;
+}
+
+/* Вертикальный разделитель */
+ul.control-dots::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 28px;
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+    left: 50%;
+    top: 6px;
+}
+
+
+/* Левая кнопка - не выделена*/
+ul.control-dots .dot:first-child::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 36%;
+    left: 20%;
+    width: 10px;
+    height: 11px;
+    background-image: url("./../../assets/icons/banner_left_arrow_active.svg");
+}
+
+/* Левая кнопка - выделена*/
+ul.control-dots .dot.selected:first-child::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 36%;
+    left: 20%;
+    width: 10px;
+    height: 11px;
+    background-image: url("./../../assets/icons/banner_left_arrow.svg");
+}
+
+/* Правая кнопка - не выделена */
+ul.control-dots .dot:last-child::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 36%;
+    right: 17%;
+    width: 10px;
+    height: 11px;
+    background-image: url("./../../assets/icons/banner_right_arrow_active.svg");
+}
+
+/* Правая кнопка - выделена */
+ul.control-dots .dot.selected:last-child::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 36%;
+    right: 17%;
+    width: 10px;
+    height: 11px;
+    background-image: url("./../../assets/icons/banner_right_arrow.svg");
+}
+
+/* Скрываем кнопки переключения (кнопки, которые находятся по краям карусели) */
+.carousel.carousel-slider .control-arrow.control-next, 
+.carousel.carousel-slider .control-arrow.control-prev, 
+.carousel.carousel-slider .carousel-status {
+    display: none;
+}
+
+.banner-left-half {
+    width: 498px;
+    padding-top: 42px;
+}
+
+.banner-left-half h2, .banner-right-half h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 66px;
+    text-align: left;
+    width: 445px;
+}
+
+.banner-right-half {
+    position: relative;
+    height: 400px;
+    width: 615px;
+    overflow: hidden;
+}
+
+.banner-slide__first-slide .banner-right-half__ellipse {
+    position: absolute;
+    top: -108px;
+    right: 0px;
+    width: 613px;
+    height: 613px;
+    border-radius: 50%;
+    /* background-image: url("./../../assets/images/slider_image_1.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.banner-slide__second-slide .banner-right-half__ellipse {
+    position: absolute;
+    top: -108px;
+    right: 0px;
+    width: 613px;
+    height: 613px;
+    border-radius: 50%;
+    /* background-image: url("./../../assets/images/slider_image_2.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.carousel .slide .legend {
+    position: absolute;
+    width: fit-content;
+    height: 54px;
+    border-radius: 1000px;
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    opacity: 1;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+/* Первый слайд. Профессия */
+.banner-slide__first-slide p.legend:first-of-type {
+    top: 50px !important;
+    right: 378px !important;
+    left: unset;
+}
+/* Первый слайд. Имя */
+.banner-slide__first-slide p.legend:last-of-type {
+    top: 293px !important;
+    left: unset;
+    right: 91px;
+}
+
+
+/* Второй слайд. Профессия */
+.banner-slide__second-slide p.legend:first-of-type {
+    top: 50px !important;
+    right: 139px !important;
+    left: unset;
+}
+/* Второй слайд. Имя */
+.banner-slide__second-slide p.legend:last-of-type {
+    top: 293px !important;
+    left: unset;
+    right: 377px;
+}
+
+
+.banner-content-wrapper {
+    width: 1110px;
+}
+
+.carousel-root, .carousel.carousel-slider {
+    height: 400px !important;
+}
+
+ul.thumbs.animated {
+    display: none;
+}
+
+.banner-mobile {
+    display: none;
+}
+
+
+/* Планшеты */
+@media(min-width: 768px) and (max-width: 1439px) {
+    .banner-content-wrapper {
+        width: 768px;
+    }
+
+    .banner-left-half {
+        padding-left: 30px;
+        width: 290px;
+    }
+    .banner-left-half h2, .banner-right-half h2 {
+        width: 290px;
+        word-break: break-word;
+    }
+
+    .banner-slide__first-slide .banner-right-half__ellipse,
+    .banner-slide__second-slide .banner-right-half__ellipse {
+        right: -165px;
+    }
+
+    .banner-slide__first-slide p.legend:first-of-type {
+        right: 228px !important;
+    }
+    .banner-slide__first-slide p.legend:last-of-type {
+        right: 27px;
+    }
+
+    .banner-slide__second-slide p.legend:first-of-type {
+        right: 11px !important;
+    }
+    .banner-slide__second-slide p.legend:last-of-type {
+        right: 177px;
+    }
+
+    ul.control-dots {
+        left: 30px;
+    }
+    .banner-mobile {
+        display: none;
+    }
+}
+
+/* Смартфоны */
+@media(min-width: 375px) and (max-width: 767px) {
+    .carousel-root {
+        display: none;
+    }
+
+    .banner-content-wrapper {
+        width: 375px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner-mobile {
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        padding-top: 48px;
+    }
+    .banner-mobile h2 {
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 44px;
+        margin-bottom: 48px;
+        width: 346px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner-mobile-image {
+        position: relative;
+        background-image: url("./../../assets/images/slider_image_2_mobile.png");
+        width: 375px;
+        height: 403px;
+        border-radius: 50% 50% 0 0;
+    }
+
+    .banner-mobile-image p {
+        position: absolute;
+        background: #FFFFFF;
+        padding: 12px;
+        border-radius: 1000px;
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .banner-mobile-image p:first-child {
+        top: 74px;
+        right: 39px;
+    }
+    .banner-mobile-image p:last-child {
+        bottom: 85px;
+        left: 24px;
+    }
+}

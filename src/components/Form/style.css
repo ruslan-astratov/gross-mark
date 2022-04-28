@@ -1,0 +1,559 @@
+.form-blank {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.form-heading,
+.success-submit-block__heading {
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 66px;
+    margin-bottom: 48px;
+}
+
+.main-content {
+    align-items: baseline;
+}
+
+.main-content__left-block {
+    max-width: 540px;
+}
+
+.main-content__right-block {
+    width: 445px;
+    position: relative;
+    top: 38px;
+}
+
+.main-content__right-block h2 {
+    margin-bottom: 22px;
+}
+
+.vacancy-block {
+    margin-bottom: 27px;
+}
+
+.vacancy-block p,
+.fio-block p,
+.date-block p {
+    margin-bottom: 12px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.vacancy-select {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: 0.6em 1.4em 0.5em 0.8em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 0.5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+.vacancy-select:hover {
+    cursor: pointer;
+}
+
+.vacancy-select + .arrow_icon {
+    display: block;
+    position: absolute;
+    right: 23px;
+    top: 16px;
+}
+
+.vacancy-select::-ms-expand {
+    display: none;
+}
+
+.vacancy-select:hover {
+    border-color: #888;
+}
+
+.vacancy-select:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+
+.vacancy-select option {
+    font-weight: normal;
+}
+
+*[dir='rtl'] .vacancy-select,
+:root:lang(ar) .vacancy-select,
+:root:lang(iw) .vacancy-select {
+    background-position: left 0.7em top 50%, 0 0;
+    padding: 0.6em 0.8em 0.5em 1.4em;
+}
+
+.default-select-option {
+    display: none;
+}
+
+.check_icon {
+    margin-left: 12px;
+}
+
+.fio-block input {
+    background: #f5f5f5;
+    border-radius: 8px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px 0 12px 16px;
+    font-family: 'Euclid Circular B';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.date-and-gender-wrapper,
+.phone-and-email-wrapper,
+.fio-block {
+    margin-bottom: 30px;
+}
+
+.date-block input,
+.phone-block input,
+.email-block input,
+.resume-and-attachments-wrapper input {
+    background: #f5f5f5;
+    border-radius: 8px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px 0 12px 16px;
+    font-family: 'Euclid Circular B';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.email-block input {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.invalid-input {
+    background-color: rgba(255, 102, 102, 0.3) !important;
+}
+
+.phone-block {
+    position: relative;
+}
+
+.validation-error-message {
+    color: #ff6666;
+    position: absolute;
+    display: flex;
+}
+
+.resume-and-attachments-wrapper input {
+    height: 94px;
+}
+
+.gender-block p {
+    margin-bottom: 20px;
+}
+
+.gender-block .gender-block__radio-buttons label:first-of-type {
+    margin-right: 32px;
+}
+
+/* для элемента input c type="radio" */
+.custom-radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* для элемента label связанного с .custom-radio */
+.custom-radio + label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+/* создание в label псевдоэлемента  before со следующими стилями */
+.custom-radio + label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на радио */
+.custom-radio:not(:disabled):not(:checked) + label:hover::before {
+}
+
+/* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio:not(:disabled):active + label::before {
+    background-color: #f5f5f5;
+    border-color: #b3d7ff;
+}
+
+/* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+.custom-radio:focus:not(:checked) + label::before {
+    border-color: #80bdff;
+}
+
+/* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio:checked + label::before {
+    background-image: url('./../../assets/icons/radiobutton-dott.svg');
+}
+
+.resume-and-attachments-wrapper {
+    margin-bottom: 35px;
+}
+
+.resume-and-attachments-wrapper p:first-child {
+    margin-bottom: 12px;
+}
+
+.resume-and-attachments-wrapper input:first-of-type {
+    margin-bottom: 10px;
+}
+
+.captcha-wrapper {
+    position: relative;
+}
+
+/* Оверлей для блока с капчей */
+.captcha-wrapper::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #f5f5f5;
+    top: -3px;
+    bottom: -3px;
+    left: -1px;
+    right: 0;
+    border-radius: 8px;
+    pointer-events: none !important;
+}
+
+.wrapper-for-custom-checkbox-and-label {
+    position: absolute !important;
+    top: 14px;
+    left: 15px;
+    pointer-events: none !important;
+    z-index: 1000;
+}
+.captcha-wrapper:hover {
+    cursor: pointer;
+}
+.wrapper-for-custom-checkbox-and-label .custom-checkbox + label::before {
+    background: #fff;
+}
+
+.captcha-block p:first-child {
+    margin-bottom: 15px;
+}
+
+.captcha-and-desc-wrapper {
+    margin-bottom: 24px;
+}
+
+.captcha_icon {
+    position: absolute;
+    z-index: 5000;
+    right: 10px;
+    top: 14px;
+}
+
+.captcha-desc {
+    color: #000000;
+    opacity: 0.3;
+    margin-left: 30px;
+}
+
+.captcha-wrapper div div {
+    height: 47px;
+    overflow: hidden;
+}
+
+/* Кастомный чекбокс  */
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.custom-checkbox + label::before {
+    position: relative;
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    background: #f5f5f5;
+    z-index: 5000;
+}
+
+.custom-checkbox:checked + label::before {
+    background-image: url('./../../assets/icons/check_icon_black.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
+    /* border-color: #b3d7ff; */
+}
+/* стили для активного состояния чекбокса (при нажатии на него) */
+.custom-checkbox:not(:disabled):active + label::before {
+    /* background-color: #b3d7ff; */
+    border-color: #b3d7ff;
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus + label::before {
+    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked) + label::before {
+    /* border-color: #80bdff; */
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled + label::before {
+    /* background-color: #e9ecef; */
+}
+
+.captcha-checkbox {
+    margin-bottom: 24px;
+}
+
+.captcha-checkbox label:hover {
+    cursor: pointer !important;
+}
+
+.submit-button,
+.link-call {
+    cursor: pointer;
+    background: #f5f5f5;
+    width: 100%;
+    border-radius: 8px;
+    font-family: 'Euclid Circular B';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.link-call {
+    display: flex;
+    padding: 25px 0 25px 0;
+    justify-content: center;
+}
+
+.main-content__right-block {
+    width: 445px;
+}
+
+.main-content__right-block p:first-of-type {
+    margin-bottom: 24px;
+}
+
+/* Блок, который появляется после отправки формы */
+.success-submit-block .main-content__left-block p {
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 24px;
+}
+
+.skills-list {
+    margin-bottom: 24px;
+}
+
+.skills-list li {
+    position: relative;
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+.skills-list li::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 3px;
+    height: 54px;
+    background-color: #ffdf31;
+    left: 0;
+    top: 3px;
+}
+
+.success-submit-block .main-content__right-block {
+    top: 10px;
+}
+
+.success-submit-block .main-content__right-block h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 41px;
+}
+
+/* Планшеты */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .form-blank .inner-container {
+        width: 690px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form-blank .main-content {
+        flex-direction: column;
+    }
+
+    .main-content__left-block {
+        max-width: unset;
+    }
+
+    .date-block,
+    .gender-block,
+    .phone-block,
+    .email-block {
+        width: 330px;
+    }
+
+    .captcha-and-desc-wrapper {
+        justify-content: unset;
+    }
+
+    .main-content__right-block {
+        width: unset;
+    }
+
+    .success-submit-block .main-content__right-block {
+        width: 100%;
+    }
+
+    .skills-list li::before {
+        height: 36px;
+    }
+}
+
+/* Смартфоны */
+@media (min-width: 375px) and (max-width: 767px) {
+    .form-heading,
+    .success-submit-block__heading {
+        font-size: 48px;
+        line-height: 44px;
+        margin-bottom: 48px;
+    }
+
+    .form-blank .inner-container {
+        width: 346px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form-blank .main-content {
+        flex-direction: column;
+    }
+
+    .main-content__left-block,
+    .main-content__right-block {
+        max-width: 346px;
+    }
+
+    .date-and-gender-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .date-block,
+    .phone-block {
+        margin-bottom: 30px;
+    }
+
+    .phone-and-email-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .phone-block p,
+    .email-block p {
+        margin-bottom: 12px;
+    }
+
+    .captcha-and-desc-wrapper {
+        flex-direction: column;
+    }
+
+    .success-submit-block__heading {
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 44px;
+    }
+
+    .skills-list li::before {
+        height: 72px;
+    }
+
+    .success-submit-block .main-content__right-block h2 {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .captcha-desc {
+        margin-left: unset;
+    }
+
+    .captcha-wrapper {
+        margin-right: auto;
+    }
+}

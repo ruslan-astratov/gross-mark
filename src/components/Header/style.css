@@ -1,0 +1,61 @@
+.header_mainpage {
+    background: white;
+}
+
+.header-logo-wrapper {
+    width: 100%;
+}
+
+.heading {
+    color: black;
+    text-decoration: none;
+    font-size: 32px;
+    line-height: 41px;
+}
+
+.logo {
+    margin-right: 19px;
+}
+
+.link-to-form {
+    padding: 12px 16px;
+    background: #FFDF31;
+    border-radius: 8px;
+}
+
+.header-phone-and-link-wrapper p {
+    margin-right: 32px;
+}
+
+.phone_icon {
+    display: none;
+}
+
+/* Планшеты */
+@media(min-width: 768px) and (max-width: 1439px) {
+    .header .inner-container {
+        width: 690px;
+    }
+}
+
+/* Смартфоны */
+@media(min-width: 375px) and (max-width: 767px) {
+    .header .inner-container {
+        width: 328px;
+    }
+
+    .heading {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .header-phone-and-link-wrapper {
+        display: none;
+    }
+
+    .phone_icon {
+        display: block;
+    }
+}
