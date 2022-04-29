@@ -84,8 +84,8 @@ const Form = () => {
             gender &&
             phone &&
             isPhoneValid &&
-            email &&
-            isEmailValid &&
+            // email &&
+            // isEmailValid &&
             (linkToResume || files.length > 0) &&
             clickOnCaptha &&
             applyCheckboxState
@@ -99,7 +99,10 @@ const Form = () => {
             const formattedBirthdate = dateBorn.split('.').reverse().join('-')
             data.append('birthdate', formattedBirthdate)
             data.append('phone', phone)
-            data.append('email', email)
+            if (email) {
+                data.append('email', email)
+            }
+
             data.append('sex', gender === 'Мужской' ? 1 : 0)
             if (linkToResume) {
                 data.append('resume_link', linkToResume)
