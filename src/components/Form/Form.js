@@ -35,6 +35,7 @@ const Form = () => {
     const [submit, setSubmit] = useState(false)
 
     const dateRegex = /^\d{2}.\d{2}.\d{4}$/
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
     const phoneRegex =
         /(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g
     const emailRegex =
@@ -89,6 +90,15 @@ const Form = () => {
         return false
     }
 
+    function validatelinkToResume(linkToResume) {
+        if (!urlRegex.test(linkToResume)) {
+            toast.error('Укажите корректную ссылку на резюме', {
+                position: toast.POSITION.TOP_LEFT,
+            })
+            return false
+        }
+    }
+
     function submitForm(e) {
         e.preventDefault()
         if (
@@ -104,6 +114,7 @@ const Form = () => {
             clickOnCaptha &&
             applyCheckboxState
         ) {
+            if (!validatelinkToResume(linkToResume)) return
             let data = new FormData()
             const selectedVacancie = options.find(
                 (opt) => opt.label === vacancy
@@ -384,7 +395,7 @@ const Form = () => {
                                 <div className="resume-and-attachments-wrapper">
                                     <p>Резюме</p>
                                     <input
-                                        // placeholder='Вставьте ссылку на резюме или прикрепите файл ниже'
+                                        placeholder='Вставьте ссылку на резюме или прикрепите файл ниже'
                                         type="text"
                                         value={linkToResume}
                                         onChange={(event) =>
