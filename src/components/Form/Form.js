@@ -81,12 +81,21 @@ const Form = () => {
 
     function validateDateBorn(dateBorn) {
         const dateBornArr = dateBorn.split('.')
+        const enteredDate = new Date(dateBorn)
+        const currentDate = new Date()
 
         const day = Number(dateBornArr[0])
         const month = Number(dateBornArr[1])
         const year = Number(dateBornArr[2])
 
-        if (day > 0 && day <= 31 && month <= 12 && year > 1900) return true
+        if (
+            day > 0 &&
+            day <= 31 &&
+            month <= 12 &&
+            year > 1900 &&
+            currentDate >= enteredDate
+        )
+            return true
         return false
     }
 
@@ -395,7 +404,7 @@ const Form = () => {
                                 <div className="resume-and-attachments-wrapper">
                                     <p>Резюме</p>
                                     <input
-                                        placeholder='Вставьте ссылку на резюме или прикрепите файл ниже'
+                                        placeholder="Вставьте ссылку на резюме или прикрепите файл ниже"
                                         type="text"
                                         value={linkToResume}
                                         onChange={(event) =>
