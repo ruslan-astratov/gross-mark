@@ -5,6 +5,8 @@ import vk_icon from './../../assets/icons/vk_social_icon.svg'
 //eslint-disable-next-line
 import ModalWindow from '../ModalWindow/ModalWindow'
 import ModalContent from '../ModalWindow/ModalContent'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import './style.css'
 
@@ -24,8 +26,10 @@ const Footer = () => {
         fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/police')
             .then((response) => response.json())
             .then((data) => setTextSecurityPolicy(data.text))
-            .catch((error) => {
-                console.log('Произошла ошибка запроса', error)
+            .catch((err) => {
+                toast.error(`Возникли проблемы при отправке запроса: ${err}`, {
+                    position: toast.POSITION.TOP_LEFT,
+                })
             })
     }, [])
 
@@ -77,6 +81,7 @@ const Footer = () => {
                     />
                 </div>
             </div>
+            <ToastContainer />
         </footer>
     )
 }

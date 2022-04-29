@@ -6,6 +6,8 @@ import Footer from '../../components/Footer/Footer'
 import Banner from '../../components/Banner/Banner'
 import SimpleMap from '../../components/SimpleMap/SimpleMap'
 import Carousel from '../../components/Carousel/Carousel'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import './style.css'
 
@@ -43,7 +45,12 @@ const MainPage = () => {
                 console.log(vacancies)
             })
             .catch((error) => {
-                console.log('Произошла ошибка запроса', error)
+                toast.error(
+                    `Возникли проблемы при отправке запроса: ${error}`,
+                    {
+                        position: toast.POSITION.TOP_LEFT,
+                    }
+                )
             })
 
         fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/banners')
@@ -53,7 +60,12 @@ const MainPage = () => {
                 console.log(banners)
             })
             .catch((error) => {
-                console.log('Произошла ошибка запроса', error)
+                toast.error(
+                    `Возникли проблемы при отправке запроса: ${error}`,
+                    {
+                        position: toast.POSITION.TOP_LEFT,
+                    }
+                )
             })
 
         fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/map-points')
@@ -63,7 +75,12 @@ const MainPage = () => {
                 console.log(map_points)
             })
             .catch((error) => {
-                console.log('Произошла ошибка запроса', error)
+                toast.error(
+                    `Возникли проблемы при отправке запроса: ${error}`,
+                    {
+                        position: toast.POSITION.TOP_LEFT,
+                    }
+                )
             })
     }, [])
 
@@ -86,6 +103,7 @@ const MainPage = () => {
 
             {map_points && <SimpleMap map_points={map_points} />}
             <Footer />
+            <ToastContainer />
         </div>
     )
 }
