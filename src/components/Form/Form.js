@@ -33,6 +33,7 @@ const Form = () => {
     const [files, setFiles] = useState([])
 
     const [submit, setSubmit] = useState(false)
+    const [disabledSubmitButton, toggleDisableSubmitButton] = useState(true)
 
     const dateRegex = /^\d{2}.\d{2}.\d{4}$/
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
@@ -47,6 +48,33 @@ const Form = () => {
         validateEmail(email)
         //eslint-disable-next-line
     }, [phone, email])
+
+    useEffect(() => {
+        if (
+            vacancy &&
+            fio &&
+            dateBorn &&
+            gender &&
+            phone &&
+            isPhoneValid &&
+            (linkToResume || files.length > 0) &&
+            clickOnCaptha &&
+            applyCheckboxState
+        ) {
+            toggleDisableSubmitButton(false)
+        } else toggleDisableSubmitButton(true)
+    }, [
+        vacancy,
+        fio,
+        dateBorn,
+        gender,
+        phone,
+        isPhoneValid,
+        linkToResume,
+        files,
+        clickOnCaptha,
+        applyCheckboxState,
+    ])
 
     const options = [
         { label: 'водитель', id: 1 },
@@ -123,7 +151,8 @@ const Form = () => {
             clickOnCaptha &&
             applyCheckboxState
         ) {
-            if (!validatelinkToResume(linkToResume)) return
+            if (validatelinkToResume(linkToResume)) return
+
             let data = new FormData()
             const selectedVacancie = options.find(
                 (opt) => opt.label === vacancy
@@ -472,7 +501,11 @@ const Form = () => {
                                     </div>
 
                                     <button
-                                        className="submit-button d-flex"
+                                        className={`submit-button d-flex ${
+                                            disabledSubmitButton
+                                                ? 'disabled-submit-button'
+                                                : ''
+                                        }`}
                                         onClick={submitForm}
                                     >
                                         отправить
