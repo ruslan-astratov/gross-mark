@@ -82,7 +82,7 @@ const Form = () => {
         const month = Number(dateBornArr[1])
         const year = Number(dateBornArr[2])
 
-        if (day <= 31 && month <= 12 && year > 1900) return true
+        if (day > 0 && day <= 31 && month <= 12 && year > 1900) return true
         return false
     }
 
@@ -131,11 +131,16 @@ const Form = () => {
                 }
             )
                 .then((response) => response.json())
-                .then(() => {
-                    setSubmit(true)
+                .then((response) => {
+                    if (response === '') {
+                        setSubmit(true)
+                    } else {
+                        // alert('возникли проблемы при отправке')
+                    }
                 })
                 .catch((error) => {
                     console.log('Произошла ошибка запроса', error)
+                    // alert('возникли проблемы при отправке')
                 })
         }
     }
