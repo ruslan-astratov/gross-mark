@@ -39,7 +39,7 @@ const Footer = () => {
                     <div className="social-networks-wrapper d-flex align-items-center">
                         <a
                             rel="noreferrer"
-                            href="https://www.facebook.com/sharer.php?u=https://gross-mark.herokuapp.com"
+                            href="https://www.facebook.com/sharer.php?u=https://ruslan-astratov.github.io/gross-mark"
                             target="_blank"
                             className="social-network-link"
                         >
@@ -47,7 +47,7 @@ const Footer = () => {
                         </a>
                         <a
                             rel="noreferrer"
-                            href="https://vk.com/share.php?url=https://gross-mark.herokuapp.com/"
+                            href="https://vk.com/share.php?url=https://ruslan-astratov.github.io/gross-mark"
                             target="_blank"
                             className="social-network-link"
                         >
