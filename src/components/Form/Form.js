@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import check_icon from './../../assets/icons/check_icon_green.svg'
 import arrow_icon from './../../assets/icons/select_arrow.svg'
 import captcha_icon from './../../assets/icons/captcha_icon.svg'
+//eslint-disable-next-line
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import InputMask from 'react-input-mask'
 import DropzoneComponent from '../DropzoneComponent/DropzoneComponent'
@@ -134,14 +137,27 @@ const Form = () => {
                 .then((response) => {
                     if (response === '') {
                         setSubmit(true)
+                        toast.success('Анкета успешно отправлена', {
+                            position: toast.POSITION.TOP_LEFT,
+                        })
                     } else {
-                        // alert('возникли проблемы при отправке')
+                        toast.error('Возникли проблемы при отправке анкеты', {
+                            position: toast.POSITION.TOP_LEFT,
+                        })
                     }
                 })
-                .catch((error) => {
-                    console.log('Произошла ошибка запроса', error)
-                    // alert('возникли проблемы при отправке')
+                .catch(() => {
+                    toast.error('Возникли проблемы при отправке анкеты', {
+                        position: toast.POSITION.TOP_LEFT,
+                    })
                 })
+        } else {
+            toast.error(
+                'Пожалуйста, проверьте правильность заполненных обязательных полей',
+                {
+                    position: toast.POSITION.TOP_LEFT,
+                }
+            )
         }
     }
 
@@ -505,6 +521,7 @@ const Form = () => {
                     </div>
                 )}
             </div>
+            <ToastContainer />
         </section>
     )
 }
