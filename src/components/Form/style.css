@@ -35,7 +35,9 @@
 
 .vacancy-block p,
 .fio-block p,
-.date-block p {
+.date-block p,
+.phone-block p,
+.email-block p {
     margin-bottom: 12px;
 }
 

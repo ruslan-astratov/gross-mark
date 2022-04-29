@@ -29,8 +29,3 @@
 Сайт можно увидеть на:
 
 https://ruslan-astratov.github.io/gross-mark/
-
-или на
-###
-
-https://gross-mark.herokuapp.com/
