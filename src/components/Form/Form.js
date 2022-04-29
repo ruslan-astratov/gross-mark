@@ -75,6 +75,17 @@ const Form = () => {
         } else toggleEmailValid(false)
     }
 
+    function validateDateBorn(dateBorn) {
+        const dateBornArr = dateBorn.split('.')
+
+        const day = Number(dateBornArr[0])
+        const month = Number(dateBornArr[1])
+        const year = Number(dateBornArr[2])
+
+        if (day <= 31 && month <= 12 && year > 1900) return true
+        return false
+    }
+
     function submitForm(e) {
         e.preventDefault()
         if (
@@ -202,7 +213,8 @@ const Form = () => {
                                         <p>
                                             <span>Дата рождения *</span>
                                             {dateBorn !== '' &&
-                                                dateRegex.test(dateBorn) && (
+                                                dateRegex.test(dateBorn) &&
+                                                validateDateBorn(dateBorn) && (
                                                     <img
                                                         className="check_icon"
                                                         alt="Поле заполнено"
