@@ -10,6 +10,7 @@ import DropzoneComponent from '../DropzoneComponent/DropzoneComponent'
 //eslint-disable-next-line
 import ReCAPTCHA from 'react-google-recaptcha'
 import { submitBlank } from '../../api/api'
+import { dateRegex, phoneRegex, emailRegex, urlRegex } from '../../utils/regex'
 
 import './style.css'
 
@@ -34,14 +35,6 @@ const Form = () => {
 
     const [submit, setSubmit] = useState(false)
     const [disabledSubmitButton, toggleDisableSubmitButton] = useState(true)
-
-    const dateRegex = /^\d{2}.\d{2}.\d{4}$/
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
-    const phoneRegex =
-        /(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g
-    const emailRegex =
-        //eslint-disable-next-line
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     useEffect(() => {
         checkFilledPhone(phone)
