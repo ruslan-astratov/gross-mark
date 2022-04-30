@@ -10,6 +10,7 @@ import InputMask from 'react-input-mask'
 import DropzoneComponent from '../DropzoneComponent/DropzoneComponent'
 //eslint-disable-next-line
 import ReCAPTCHA from 'react-google-recaptcha'
+import { submitBlank } from '../../api/api'
 
 import './style.css'
 
@@ -171,20 +172,10 @@ const Form = () => {
                 data.append('resume_link', linkToResume)
             } else data.append('resume_file', files[0])
 
-            fetch(
-                'https://test.aic.thecoders.php.dev1.thecoders.ru/api/employee-form',
-                {
-                    headers: {
-                        Authorization: 'Basic ' + window.btoa('coders:coders'),
-                        // 'Content-Type': 'multipart/form-data',
-                    },
-                    method: 'POST',
-                    body: data,
-                }
-            )
-                .then((response) => response.json())
+            submitBlank(data)
                 .then((response) => {
-                    if (response === '') {
+                    console.log('Ответ при отправке формы', response)
+                    if (response.data === '') {
                         setSubmit(true)
                         toast.success('Анкета успешно отправлена', {
                             position: toast.POSITION.TOP_LEFT,
@@ -200,6 +191,36 @@ const Form = () => {
                         position: toast.POSITION.TOP_LEFT,
                     })
                 })
+
+            // fetch(
+            //     'https://test.aic.thecoders.php.dev1.thecoders.ru/api/employee-form',
+            //     {
+            //         headers: {
+            //             Authorization: 'Basic ' + window.btoa('coders:coders'),
+            //             // 'Content-Type': 'multipart/form-data',
+            //         },
+            //         method: 'POST',
+            //         body: data,
+            //     }
+            // )
+            //     .then((response) => response.json())
+            //     .then((response) => {
+            //         if (response === '') {
+            //             setSubmit(true)
+            //             toast.success('Анкета успешно отправлена', {
+            //                 position: toast.POSITION.TOP_LEFT,
+            //             })
+            //         } else {
+            //             toast.error('Возникли проблемы при отправке анкеты', {
+            //                 position: toast.POSITION.TOP_LEFT,
+            //             })
+            //         }
+            //     })
+            //     .catch(() => {
+            //         toast.error('Возникли проблемы при отправке анкеты', {
+            //             position: toast.POSITION.TOP_LEFT,
+            //         })
+            //     })
         } else {
             toast.error(
                 'Пожалуйста, проверьте правильность заполненных обязательных полей',
