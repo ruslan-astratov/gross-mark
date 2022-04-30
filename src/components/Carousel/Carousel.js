@@ -1,6 +1,8 @@
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import PropTypes from 'prop-types'
+import { baseUrlForFiles } from '../../constants/applicationConstants'
+
 import './style.css'
 
 const handleDragStart = (e) => e.preventDefault()
@@ -19,7 +21,7 @@ const Carousel = ({ vacancies }) => {
                     <p>{vacancie.text}</p>
                 </div>
                 <img
-                    src={`https://test.aic.thecoders.php.dev1.thecoders.ru${vacancie.image}`}
+                    src={`${baseUrlForFiles}${vacancie.image}`}
                     onDragStart={handleDragStart}
                     alt="commodity_expert"
                 />

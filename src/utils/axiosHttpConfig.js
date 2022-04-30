@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { baseUrl } from '../constants/applicationConstants'
 const http = axios.create({
-    baseURL: `https://test.aic.thecoders.php.dev1.thecoders.ru/api`,
+    baseURL: baseUrl,
     headers: {},
 })
 

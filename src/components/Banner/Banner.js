@@ -1,10 +1,9 @@
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import PropTypes from 'prop-types'
-
+import { baseUrlForFiles } from '../../constants/applicationConstants'
 import { Carousel } from 'react-responsive-carousel'
 import './style.css'
 
-//eslint-disable-next-line
 const Banner = ({ banners }) => {
     return (
         <div className="banner">
@@ -14,7 +13,7 @@ const Banner = ({ banners }) => {
                         banners.map((banner, index) => {
                             const bannerLetters = banner.text.split(',')
                             const sectionStyle = {
-                                backgroundImage: `url('https://test.aic.thecoders.php.dev1.thecoders.ru${banner.image}')`,
+                                backgroundImage: `url('${baseUrlForFiles}${banner.image}')`,
                             }
                             return (
                                 <div
