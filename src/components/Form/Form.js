@@ -371,8 +371,8 @@ const Form = () => {
                                     <div className="email-block">
                                         <p>
                                             <span>Электронная почта</span>
-                                            {phone !== '' &&
-                                                phoneRegex.test(phone) && (
+                                            {email !== '' &&
+                                                emailRegex.test(email) && (
                                                     <img
                                                         className="check_icon"
                                                         alt="Поле заполнено"
