@@ -48,30 +48,6 @@ const Banner = ({ banners }) => {
                                 </div>
                             )
                         })}
-
-                    {/* <div className="banner-slide banner-slide__first-slide d-flex">
-                        <div className="banner-left-half">
-                            <h2>У тебя всё под контролем</h2>
-                        </div>
-
-                        <div className="banner-right-half">
-                            <div className="banner-right-half__ellipse"></div>
-                            <p className="legend">ксения</p>
-                            <p className="legend">товаровед</p>
-                        </div>
-                    </div>
-
-                    <div className="banner-slide banner-slide__second-slide d-flex">
-                        <div className="banner-left-half">
-                            <h2>У тебя к этому талант</h2>
-                        </div>
-
-                        <div className="banner-right-half">
-                            <div className="banner-right-half__ellipse"></div>
-                            <p className="legend">пекарь</p>
-                            <p className="legend">валентин</p>
-                        </div>
-                    </div> */}
                 </Carousel>
 
                 <div className="banner-mobile">

@@ -51,7 +51,6 @@ function DropzoneComponent({ files, setFiles }) {
         onDrop,
         accept: '.txt, .doc, .docx, .pdf',
     })
-    // txt,doc,docx,pdf
     const style = useMemo(
         () => ({
             ...baseStyle,
@@ -65,10 +64,6 @@ function DropzoneComponent({ files, setFiles }) {
     const thumbs = files.map((file) => (
         <div key={file.name}>
             <p>{file.name}</p>
-            {/* <img
-        src={file.preview}
-        alt={file.name}
-      /> */}
         </div>
     ))
 

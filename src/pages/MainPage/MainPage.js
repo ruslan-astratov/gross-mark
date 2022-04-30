@@ -15,11 +15,8 @@ import './style.css'
 
 const MainPage = () => {
     const [isShowFixedButton, toggleShowFixedButton] = useState(false)
-    //eslint-disable-next-line
     const [vacancies, setVacancies] = useState([])
-    //eslint-disable-next-line
     const [banners, setBanners] = useState([])
-    //eslint-disable-next-line
     const [map_points, setMapPoints] = useState(null)
 
     const handleScroll = () => {

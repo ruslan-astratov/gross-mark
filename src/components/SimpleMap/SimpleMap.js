@@ -8,7 +8,6 @@ import map_icon_desc from './../../assets/icons/map_icon_desc.svg'
 
 import './style.css'
 
-//eslint-disable-next-line
 const SimpleMap = ({ map_points }) => {
     const coordinates = map_points.map((p) => {
         return [Number(p.lat), Number(p.lon)]

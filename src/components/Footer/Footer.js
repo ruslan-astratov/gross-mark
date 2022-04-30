@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import HeaderLogo from '../HeaderLogo/HeaderLogo'
 import fb_icon from './../../assets/icons/facebook_social_icon.svg'
 import vk_icon from './../../assets/icons/vk_social_icon.svg'
-//eslint-disable-next-line
 import ModalWindow from '../ModalWindow/ModalWindow'
 import ModalContent from '../ModalWindow/ModalContent'
 import { ToastContainer, toast } from 'react-toastify'
@@ -12,7 +11,6 @@ import './style.css'
 
 const Footer = () => {
     const [isModal, setModal] = React.useState(false)
-    /* eslint-disable-next-line */
     const [textSecurityPolicy, setTextSecurityPolicy] = React.useState('')
 
     // При открытии модального окна выключаем возможность скролла у body
