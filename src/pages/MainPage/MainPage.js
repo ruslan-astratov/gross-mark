@@ -9,7 +9,7 @@ import Carousel from '../../components/Carousel/Carousel'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { fetchVacancies } from '../../api/api'
+import { fetchVacancies, fetchBanners, fetchMapsPoints } from '../../api/api'
 
 import './style.css'
 
@@ -39,8 +39,6 @@ const MainPage = () => {
     useEffect(() => {
         fetchVacancies()
             .then((vacancies) => {
-                // setVacancies(vacancies)
-                console.log('vacancies', vacancies.data)
                 setVacancies(vacancies.data)
             })
             .catch((error) => {
@@ -52,26 +50,10 @@ const MainPage = () => {
                 )
             })
         //
-        // fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/vacancies')
-        //     .then((response) => response.json())
-        //     .then((vacancies) => {
-        //         setVacancies(vacancies)
-        //         console.log(vacancies)
-        //     })
-        //     .catch((error) => {
-        //         toast.error(
-        //             `Возникли проблемы при отправке запроса: ${error}`,
-        //             {
-        //                 position: toast.POSITION.TOP_LEFT,
-        //             }
-        //         )
-        //     })
-        //
-        fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/banners')
-            .then((response) => response.json())
+
+        fetchBanners()
             .then((banners) => {
-                setBanners(banners)
-                console.log(banners)
+                setBanners(banners.data)
             })
             .catch((error) => {
                 toast.error(
@@ -82,11 +64,9 @@ const MainPage = () => {
                 )
             })
 
-        fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/map-points')
-            .then((response) => response.json())
+        fetchMapsPoints()
             .then((map_points) => {
-                setMapPoints(map_points)
-                console.log(map_points)
+                setMapPoints(map_points.data)
             })
             .catch((error) => {
                 toast.error(

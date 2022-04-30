@@ -7,27 +7,26 @@ import ModalContent from '../ModalWindow/ModalContent'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import { fetchPolice } from '../../api/api'
+
 import './style.css'
 
 const Footer = () => {
     const [isModal, setModal] = React.useState(false)
     const [textSecurityPolicy, setTextSecurityPolicy] = React.useState('')
 
-    // При открытии модального окна выключаем возможность скролла у body
-    // useEffect(()=> {
-    //     if(isModal) {
-    //         document.body.style.overflow = "hidden"
-    //     } else  document.body.style.overflow = "auto"
-    // } , [isModal])
-
     useEffect(() => {
-        fetch('https://test.aic.thecoders.php.dev1.thecoders.ru/api/police')
-            .then((response) => response.json())
-            .then((data) => setTextSecurityPolicy(data.text))
-            .catch((err) => {
-                toast.error(`Возникли проблемы при отправке запроса: ${err}`, {
-                    position: toast.POSITION.TOP_LEFT,
-                })
+        fetchPolice()
+            .then((police) => {
+                setTextSecurityPolicy(police.data.text)
+            })
+            .catch((error) => {
+                toast.error(
+                    `Возникли проблемы при отправке запроса: ${error}`,
+                    {
+                        position: toast.POSITION.TOP_LEFT,
+                    }
+                )
             })
     }, [])
 
