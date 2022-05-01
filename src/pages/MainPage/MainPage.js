@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
@@ -9,7 +11,19 @@ import Carousel from '../../components/Carousel/Carousel'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { fetchVacancies, fetchBanners, fetchMapsPoints } from '../../api/api'
+import {
+    fetchVacancies,
+    fetchBanners,
+    fetchMapsPoints,
+    fetchPolice,
+} from '../../api/api'
+
+import {
+    setVacancies,
+    setBanners,
+    setMapsPoints,
+    setSecurityPolicy,
+} from '../../actions/mainPageActions'
 
 import {
     startSectionShowButton,
@@ -20,7 +34,12 @@ import {
 
 import './style.css'
 
-const MainPage = () => {
+const MainPage = ({
+    setVacanciesAction,
+    setBannersAction,
+    setMapsPointsAction,
+    setSecurityPolicyAction,
+}) => {
     const [isShowFixedButton, toggleShowFixedButton] = useState(false)
     const [vacancies, setVacancies] = useState([])
     const [banners, setBanners] = useState([])
@@ -38,7 +57,6 @@ const MainPage = () => {
     }
 
     useEffect(() => {
-        // Событие скролла на мобильном устройстве (position: sticky не подойдёт!)
         window.addEventListener('touchmove', handleScroll)
         return () => window.removeEventListener('touchmove', handleScroll)
     })
@@ -47,6 +65,7 @@ const MainPage = () => {
         fetchVacancies()
             .then((vacancies) => {
                 setVacancies(vacancies.data)
+                setVacanciesAction(vacancies.data)
             })
             .catch((error) => {
                 toast.error(
@@ -60,6 +79,7 @@ const MainPage = () => {
         fetchBanners()
             .then((banners) => {
                 setBanners(banners.data)
+                setBannersAction(banners.data)
             })
             .catch((error) => {
                 toast.error(
@@ -73,6 +93,20 @@ const MainPage = () => {
         fetchMapsPoints()
             .then((map_points) => {
                 setMapPoints(map_points.data)
+                setMapsPointsAction(map_points.data)
+            })
+            .catch((error) => {
+                toast.error(
+                    `Возникли проблемы при отправке запроса: ${error}`,
+                    {
+                        position: toast.POSITION.TOP_LEFT,
+                    }
+                )
+            })
+
+        fetchPolice()
+            .then((police) => {
+                setSecurityPolicyAction(police.data.text)
             })
             .catch((error) => {
                 toast.error(
@@ -108,4 +142,16 @@ const MainPage = () => {
     )
 }
 
-export default MainPage
+MainPage.propTypes = {
+    setVacanciesAction: PropTypes.func,
+    setBannersAction: PropTypes.func,
+    setMapsPointsAction: PropTypes.func,
+    setSecurityPolicyAction: PropTypes.func,
+}
+
+export default connect(() => {}, {
+    setVacanciesAction: setVacancies,
+    setBannersAction: setBanners,
+    setMapsPointsAction: setMapsPoints,
+    setSecurityPolicyAction: setSecurityPolicy,
+})(MainPage)
