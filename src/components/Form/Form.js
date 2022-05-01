@@ -100,14 +100,15 @@ const Form = () => {
         } else toggleEmailValid(false)
     }
 
-    function validateDateBorn(dateBorn) {
+    function validateDateBorn() {
         const dateBornArr = dateBorn.split('.')
-        const enteredDate = new Date(dateBorn)
+
+        const enteredDate = new Date(dateBornArr.reverse().join('-'))
         const currentDate = new Date()
 
-        const day = Number(dateBornArr[0])
+        const day = Number(dateBornArr[2])
         const month = Number(dateBornArr[1])
-        const year = Number(dateBornArr[2])
+        const year = Number(dateBornArr[0])
 
         if (
             day > 0 &&
@@ -115,8 +116,9 @@ const Form = () => {
             month <= 12 &&
             year > 1900 &&
             currentDate >= enteredDate
-        )
+        ) {
             return true
+        }
         return false
     }
 
@@ -138,8 +140,6 @@ const Form = () => {
             gender &&
             phone &&
             isPhoneValid &&
-            // email &&
-            // isEmailValid &&
             (linkToResume || files.length > 0) &&
             clickOnCaptha &&
             applyCheckboxState
@@ -267,7 +267,7 @@ const Form = () => {
                                             <span>Дата рождения *</span>
                                             {dateBorn !== '' &&
                                                 dateRegex.test(dateBorn) &&
-                                                validateDateBorn(dateBorn) && (
+                                                validateDateBorn() && (
                                                     <img
                                                         className="check_icon"
                                                         alt="Поле заполнено"
