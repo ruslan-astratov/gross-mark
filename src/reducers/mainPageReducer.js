@@ -1,43 +1,43 @@
 import {
-    FETCH_VACANCIES,
-    FETCH_BANNERS,
-    FETCH_MAPS_POINTS,
-    FETCH_SECURITY_POLICY,
+    SET_VACANCIES,
+    SET_BANNERS,
+    SET_MAPS_POINTS,
+    SET_SECURITY_POLICY,
 } from '../constants/actionTypes.js'
 
 const INIT_STATE = {
     vacancies: [],
     banners: [],
-    mapsPoints: [],
-    securityPolicy: [],
+    map_points: [],
+    textSecurityPolicy: '',
 }
 
 export default (state = INIT_STATE, action) => {
     switch (action.type) {
-        case FETCH_VACANCIES: {
+        case SET_VACANCIES: {
             return {
                 ...state,
                 vacancies: action.payload,
             }
         }
 
-        case FETCH_BANNERS: {
+        case SET_BANNERS: {
             return {
                 ...state,
                 banners: action.payload,
             }
         }
 
-        case FETCH_MAPS_POINTS: {
+        case SET_MAPS_POINTS: {
             return {
                 ...state,
-                mapsPoints: action.payload,
+                map_points: action.payload,
             }
         }
-        case FETCH_SECURITY_POLICY: {
+        case SET_SECURITY_POLICY: {
             return {
                 ...state,
-                securityPolicy: action.payload,
+                textSecurityPolicy: action.payload,
             }
         }
 

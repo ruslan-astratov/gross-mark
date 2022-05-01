@@ -39,6 +39,7 @@ const MainPage = ({
     setBannersAction,
     setMapsPointsAction,
     setSecurityPolicyAction,
+    textSecurityPolicy,
 }) => {
     const [isShowFixedButton, toggleShowFixedButton] = useState(false)
     const [vacancies, setVacancies] = useState([])
@@ -107,6 +108,7 @@ const MainPage = ({
         fetchPolice()
             .then((police) => {
                 setSecurityPolicyAction(police.data.text)
+                console.log('textSecurityPolicy', textSecurityPolicy)
             })
             .catch((error) => {
                 toast.error(
@@ -147,9 +149,23 @@ MainPage.propTypes = {
     setBannersAction: PropTypes.func,
     setMapsPointsAction: PropTypes.func,
     setSecurityPolicyAction: PropTypes.func,
+
+    textSecurityPolicy: PropTypes.string,
 }
 
-export default connect(() => {}, {
+const mapStateToProps = ({ mainPageReducer }) => {
+    const { vacancies, banners, map_points, textSecurityPolicy } =
+        mainPageReducer
+
+    return {
+        vacancies,
+        banners,
+        map_points,
+        textSecurityPolicy,
+    }
+}
+
+export default connect(mapStateToProps, {
     setVacanciesAction: setVacancies,
     setBannersAction: setBanners,
     setMapsPointsAction: setMapsPoints,
