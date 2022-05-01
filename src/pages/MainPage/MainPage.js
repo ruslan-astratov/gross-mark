@@ -11,6 +11,13 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { fetchVacancies, fetchBanners, fetchMapsPoints } from '../../api/api'
 
+import {
+    startSectionShowButton,
+    endSectionShowButton,
+    minWidthScreenForShowButton,
+    maxWidthScreenForShowButton,
+} from '../../constants/applicationConstants'
+
 import './style.css'
 
 const MainPage = () => {
@@ -21,10 +28,10 @@ const MainPage = () => {
 
     const handleScroll = () => {
         if (
-            window.pageYOffset > 70 &&
-            window.pageYOffset < 1050 &&
-            window.innerWidth >= 375 &&
-            window.innerWidth < 768
+            window.pageYOffset > startSectionShowButton &&
+            window.pageYOffset < endSectionShowButton &&
+            window.innerWidth >= minWidthScreenForShowButton &&
+            window.innerWidth < maxWidthScreenForShowButton
         ) {
             toggleShowFixedButton(true)
         } else toggleShowFixedButton(false)
@@ -49,7 +56,6 @@ const MainPage = () => {
                     }
                 )
             })
-        //
 
         fetchBanners()
             .then((banners) => {
