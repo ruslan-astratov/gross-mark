@@ -38,8 +38,7 @@ const Form = () => {
 
     useEffect(() => {
         checkFilledPhone(phone)
-        validateEmail(email)
-        //eslint-disable-next-line
+        if (document.activeElement.type !== 'email') validateEmail(email)
     }, [phone, email])
 
     useEffect(() => {
@@ -166,7 +165,6 @@ const Form = () => {
 
             submitBlank(data)
                 .then((response) => {
-                    console.log('Ответ при отправке формы', response)
                     if (response.data === '') {
                         setSubmit(true)
                         toast.success('Анкета успешно отправлена', {
