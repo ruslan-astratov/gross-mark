@@ -8,8 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import Banner from '../../components/Banner/Banner'
 import SimpleMap from '../../components/SimpleMap/SimpleMap'
 import Carousel from '../../components/Carousel/Carousel'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
 
 import {
     fetchVacancies,
@@ -17,6 +16,8 @@ import {
     fetchMapsPoints,
     fetchPolice,
 } from '../../api/api'
+
+import { fetchErrorHandler } from '../../utils/fetchErrorHandler'
 
 import {
     setVacancies,
@@ -32,6 +33,7 @@ import {
     maxWidthScreenForShowButton,
 } from '../../constants/applicationConstants'
 
+import 'react-toastify/dist/ReactToastify.css'
 import './style.css'
 
 const MainPage = ({
@@ -69,12 +71,7 @@ const MainPage = ({
                 setVacanciesAction(vacancies.data)
             })
             .catch((error) => {
-                toast.error(
-                    `Возникли проблемы при отправке запроса: ${error}`,
-                    {
-                        position: toast.POSITION.TOP_LEFT,
-                    }
-                )
+                fetchErrorHandler(error)
             })
 
         fetchBanners()
@@ -82,12 +79,7 @@ const MainPage = ({
                 setBannersAction(banners.data)
             })
             .catch((error) => {
-                toast.error(
-                    `Возникли проблемы при отправке запроса: ${error}`,
-                    {
-                        position: toast.POSITION.TOP_LEFT,
-                    }
-                )
+                fetchErrorHandler(error)
             })
 
         fetchMapsPoints()
@@ -95,12 +87,7 @@ const MainPage = ({
                 setMapsPointsAction(map_points.data)
             })
             .catch((error) => {
-                toast.error(
-                    `Возникли проблемы при отправке запроса: ${error}`,
-                    {
-                        position: toast.POSITION.TOP_LEFT,
-                    }
-                )
+                fetchErrorHandler(error)
             })
 
         fetchPolice()
@@ -108,12 +95,7 @@ const MainPage = ({
                 setSecurityPolicyAction(police.data.text)
             })
             .catch((error) => {
-                toast.error(
-                    `Возникли проблемы при отправке запроса: ${error}`,
-                    {
-                        position: toast.POSITION.TOP_LEFT,
-                    }
-                )
+                fetchErrorHandler(error)
             })
     }, [])
 
