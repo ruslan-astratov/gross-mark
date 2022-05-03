@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/gross-mark/static/css/main.40ceb92c.css",
-    "main.js": "/gross-mark/static/js/main.6b6430a7.js",
+    "main.js": "/gross-mark/static/js/main.cab0d83a.js",
     "static/media/slider_image_2_mobile.png": "/gross-mark/static/media/slider_image_2_mobile.be7f743285147c07a2a5.png",
     "static/media/EuclidCircularB-Medium.woff": "/gross-mark/static/media/EuclidCircularB-Medium.5313021566c3c955740a.woff",
     "static/media/EuclidCircularB-Regular.woff": "/gross-mark/static/media/EuclidCircularB-Regular.b8a63e45c1535cf2f0ac.woff",
@@ -26,10 +26,10 @@
     "static/media/map_icon_desc.svg": "/gross-mark/static/media/map_icon_desc.b412a163804353df2aa04d91cbd68a6e.svg",
     "static/media/radiobutton-dott.svg": "/gross-mark/static/media/radiobutton-dott.b745089d84570913ea85.svg",
     "main.40ceb92c.css.map": "/gross-mark/static/css/main.40ceb92c.css.map",
-    "main.6b6430a7.js.map": "/gross-mark/static/js/main.6b6430a7.js.map"
+    "main.cab0d83a.js.map": "/gross-mark/static/js/main.cab0d83a.js.map"
   },
   "entrypoints": [
     "static/css/main.40ceb92c.css",
-    "static/js/main.6b6430a7.js"
+    "static/js/main.cab0d83a.js"
   ]
 }
