@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import check_icon from './../../assets/icons/check_icon_green.svg'
 import arrow_icon from './../../assets/icons/select_arrow.svg'
 import captcha_icon from './../../assets/icons/captcha_icon.svg'
+import cn from 'classnames'
+
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -348,11 +350,11 @@ const Form = () => {
                                             onFocus={() =>
                                                 toggleOnBlurPhone(false)
                                             }
-                                            className={
-                                                !isPhoneValid && onBlurPhone
-                                                    ? 'invalid-input'
-                                                    : ''
-                                            }
+                                            className={cn(
+                                                !isPhoneValid &&
+                                                    onBlurPhone &&
+                                                    'invalid-input'
+                                            )}
                                         />
                                         {!isPhoneValid && onBlurPhone && (
                                             <span className="validation-error-message">
@@ -375,13 +377,12 @@ const Form = () => {
                                         </p>
                                         <input
                                             placeholder="example@mail.com"
-                                            className={
+                                            className={cn(
                                                 email &&
-                                                !isEmailValid &&
-                                                onBlurEmail
-                                                    ? 'invalid-input'
-                                                    : ''
-                                            }
+                                                    !isEmailValid &&
+                                                    onBlurEmail &&
+                                                    'invalid-input'
+                                            )}
                                             type="email"
                                             value={email}
                                             onChange={(event) =>
@@ -477,11 +478,11 @@ const Form = () => {
                                     </div>
 
                                     <button
-                                        className={`submit-button d-flex ${
-                                            disabledSubmitButton
-                                                ? 'disabled-submit-button'
-                                                : ''
-                                        }`}
+                                        className={cn(
+                                            'submit-button d-flex',
+                                            disabledSubmitButton &&
+                                                'disabled-submit-button'
+                                        )}
                                         onClick={submitForm}
                                     >
                                         отправить
