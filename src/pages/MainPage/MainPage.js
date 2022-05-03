@@ -39,12 +39,13 @@ const MainPage = ({
     setBannersAction,
     setMapsPointsAction,
     setSecurityPolicyAction,
+
+    vacancies,
+    banners,
+    map_points,
     textSecurityPolicy,
 }) => {
     const [isShowFixedButton, toggleShowFixedButton] = useState(false)
-    const [vacancies, setVacancies] = useState([])
-    const [banners, setBanners] = useState([])
-    const [map_points, setMapPoints] = useState(null)
 
     const handleScroll = () => {
         if (
@@ -65,7 +66,6 @@ const MainPage = ({
     useEffect(() => {
         fetchVacancies()
             .then((vacancies) => {
-                setVacancies(vacancies.data)
                 setVacanciesAction(vacancies.data)
             })
             .catch((error) => {
@@ -79,7 +79,6 @@ const MainPage = ({
 
         fetchBanners()
             .then((banners) => {
-                setBanners(banners.data)
                 setBannersAction(banners.data)
             })
             .catch((error) => {
@@ -93,7 +92,6 @@ const MainPage = ({
 
         fetchMapsPoints()
             .then((map_points) => {
-                setMapPoints(map_points.data)
                 setMapsPointsAction(map_points.data)
             })
             .catch((error) => {
@@ -108,7 +106,6 @@ const MainPage = ({
         fetchPolice()
             .then((police) => {
                 setSecurityPolicyAction(police.data.text)
-                console.log('textSecurityPolicy', textSecurityPolicy)
             })
             .catch((error) => {
                 toast.error(
@@ -133,12 +130,12 @@ const MainPage = ({
                     </div>
                 )}
 
-                <Banner banners={banners} />
+                {banners.length > 0 && <Banner banners={banners} />}
                 {vacancies.length > 0 && <Carousel vacancies={vacancies} />}
             </div>
 
-            {map_points && <SimpleMap map_points={map_points} />}
-            <Footer />
+            {map_points.length > 0 && <SimpleMap map_points={map_points} />}
+            <Footer textSecurityPolicy={textSecurityPolicy} />
             <ToastContainer />
         </div>
     )
@@ -151,6 +148,9 @@ MainPage.propTypes = {
     setSecurityPolicyAction: PropTypes.func,
 
     textSecurityPolicy: PropTypes.string,
+    vacancies: PropTypes.array,
+    banners: PropTypes.array,
+    map_points: PropTypes.array,
 }
 
 const mapStateToProps = ({ mainPageReducer }) => {

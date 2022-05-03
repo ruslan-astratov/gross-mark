@@ -1,34 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
+
 import HeaderLogo from '../HeaderLogo/HeaderLogo'
 import fb_icon from './../../assets/icons/facebook_social_icon.svg'
 import vk_icon from './../../assets/icons/vk_social_icon.svg'
 import ModalWindow from '../ModalWindow/ModalWindow'
 import ModalContent from '../ModalWindow/ModalContent'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-
-import { fetchPolice } from '../../api/api'
 
 import './style.css'
 
-const Footer = () => {
+const Footer = ({ textSecurityPolicy }) => {
     const [isModal, setModal] = React.useState(false)
-    const [textSecurityPolicy, setTextSecurityPolicy] = React.useState('')
-
-    useEffect(() => {
-        fetchPolice()
-            .then((police) => {
-                setTextSecurityPolicy(police.data.text)
-            })
-            .catch((error) => {
-                toast.error(
-                    `Возникли проблемы при отправке запроса: ${error}`,
-                    {
-                        position: toast.POSITION.TOP_LEFT,
-                    }
-                )
-            })
-    }, [])
 
     const onClose = () => setModal(false)
     return (
@@ -78,9 +60,12 @@ const Footer = () => {
                     />
                 </div>
             </div>
-            <ToastContainer />
         </footer>
     )
+}
+
+Footer.propTypes = {
+    textSecurityPolicy: PropTypes.string,
 }
 
 export default Footer
