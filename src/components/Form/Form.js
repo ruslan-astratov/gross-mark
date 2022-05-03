@@ -9,6 +9,8 @@ import InputMask from 'react-input-mask'
 import DropzoneComponent from '../DropzoneComponent/DropzoneComponent'
 //eslint-disable-next-line
 import ReCAPTCHA from 'react-google-recaptcha'
+
+import { fetchErrorHandler } from '../../utils/fetchErrorHandler'
 import { submitBlank } from '../../api/api'
 import { dateRegex, phoneRegex, emailRegex, urlRegex } from '../../utils/regex'
 
@@ -123,9 +125,7 @@ const Form = () => {
 
     function validatelinkToResume(linkToResume) {
         if (!urlRegex.test(linkToResume)) {
-            toast.error('Укажите корректную ссылку на резюме', {
-                position: toast.POSITION.TOP_LEFT,
-            })
+            fetchErrorHandler('Укажите корректную ссылку на резюме')
             return false
         }
     }
@@ -171,22 +171,17 @@ const Form = () => {
                             position: toast.POSITION.TOP_LEFT,
                         })
                     } else {
-                        toast.error('Возникли проблемы при отправке анкеты', {
-                            position: toast.POSITION.TOP_LEFT,
-                        })
+                        fetchErrorHandler(
+                            'Возникли проблемы при отправке анкеты'
+                        )
                     }
                 })
                 .catch(() => {
-                    toast.error('Возникли проблемы при отправке анкеты', {
-                        position: toast.POSITION.TOP_LEFT,
-                    })
+                    fetchErrorHandler('Возникли проблемы при отправке анкеты')
                 })
         } else {
-            toast.error(
-                'Пожалуйста, проверьте правильность заполненных обязательных полей',
-                {
-                    position: toast.POSITION.TOP_LEFT,
-                }
+            fetchErrorHandler(
+                'Пожалуйста, проверьте правильность заполненных обязательных полей'
             )
         }
     }
