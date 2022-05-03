@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import close_icon from './../../assets/icons/close_icon.svg'
+import cn from 'classnames'
 
 import './style.css'
 
@@ -34,7 +35,6 @@ const ModalWindow = ({
         }
     }
 
-    // c помощью useEffect цепляем обработчик к нажатию клавиш
     useEffect(() => {
         document.addEventListener('keydown', onKeydown)
         return () => document.removeEventListener('keydown', onKeydown)
@@ -53,9 +53,10 @@ const ModalWindow = ({
             >
                 <div className="modal-header">
                     <h3
-                        className={`modal-title ${
-                            scroll >= 100 ? 'modal-title_mini' : ''
-                        }`}
+                        className={cn(
+                            'modal-title',
+                            scroll >= 100 && 'modal-title_mini'
+                        )}
                     >
                         {title}
                     </h3>

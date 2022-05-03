@@ -2,6 +2,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import PropTypes from 'prop-types'
 import { baseUrlForFiles } from '../../constants/applicationConstants'
 import { Carousel } from 'react-responsive-carousel'
+
+import cn from 'classnames'
 import './style.css'
 
 const Banner = ({ banners }) => {
@@ -18,11 +20,12 @@ const Banner = ({ banners }) => {
                             return (
                                 <div
                                     key={banner.id}
-                                    className={`banner-slide ${
+                                    className={cn(
+                                        'banner-slide d-flex',
                                         index % 2 !== 0
                                             ? 'banner-slide__first-slide'
                                             : 'banner-slide__second-slide'
-                                    }  d-flex`}
+                                    )}
                                 >
                                     <div className="banner-left-half">
                                         <h2>

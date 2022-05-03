@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import map_placemark from './../../assets/icons/map_placemark.svg'
 import map_icon_asc from './../../assets/icons/map_icon_asc.svg'
 import map_icon_desc from './../../assets/icons/map_icon_desc.svg'
+import cn from 'classnames'
 
 import './style.css'
 
@@ -84,27 +85,25 @@ const SimpleMap = ({ map_points }) => {
 
             <div className="map-filters-buttons">
                 <button
-                    className={`${
-                        activeButton === 'юрлица' ? 'active-map-button' : ''
-                    }`}
+                    className={cn(
+                        activeButton === 'юрлица' && 'active-map-button'
+                    )}
                     onClick={() => filterCoord('юрлица')}
                 >
                     юрлица
                 </button>
                 <button
-                    className={`${
-                        activeButton === 'физлица' ? 'active-map-button' : ''
-                    }`}
+                    className={cn(
+                        activeButton === 'физлица' && 'active-map-button'
+                    )}
                     onClick={() => filterCoord('физлица')}
                 >
                     физлица
                 </button>
                 <button
-                    className={`${
-                        activeButton === 'показать всё'
-                            ? 'active-map-button'
-                            : ''
-                    }`}
+                    className={cn(
+                        activeButton === 'показать всё' && 'active-map-button'
+                    )}
                     onClick={() => filterCoord('показать всё')}
                 >
                     показать всё

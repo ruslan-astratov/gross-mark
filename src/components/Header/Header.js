@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import close_icon from './../../assets/icons/close_icon.svg'
 import phone_icon from './../../assets/icons/phone_icon_in_mobile_header.jpg'
+import cn from 'classnames'
 
 import './style.css'
 
 const Header = ({ onMainPage = false }) => {
     return (
-        <header className={`header ${onMainPage ? 'header_mainpage' : ''}`}>
+        <header className={cn('header', onMainPage && 'header_mainpage')}>
             <div className="inner-container">
                 <div className="header-logo-wrapper d-flex space-between">
                     <HeaderLogo />
