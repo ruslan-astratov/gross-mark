@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+
 import check_icon from './../../assets/icons/check_icon_green.svg'
 import arrow_icon from './../../assets/icons/select_arrow.svg'
 import captcha_icon from './../../assets/icons/captcha_icon.svg'
+import { connect } from 'react-redux'
+
 import cn from 'classnames'
 
 import { ToastContainer, toast } from 'react-toastify'
@@ -13,12 +17,14 @@ import DropzoneComponent from '../DropzoneComponent/DropzoneComponent'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 import { fetchErrorHandler } from '../../utils/fetchErrorHandler'
-import { submitBlank } from '../../api/api'
+import { submitBlank, fetchVacancies } from '../../api/api'
+
+import { setVacancies } from '../../actions/mainPageActions'
 import { dateRegex, phoneRegex, emailRegex, urlRegex } from '../../utils/regex'
 
 import './style.css'
 
-const Form = () => {
+const Form = ({ vacancies, setVacanciesAction }) => {
     const [vacancy, selectVacancy] = useState('')
     const [fio, setFio] = useState('')
     const [dateBorn, setDateBorn] = useState('')
@@ -39,6 +45,16 @@ const Form = () => {
 
     const [submit, setSubmit] = useState(false)
     const [disabledSubmitButton, toggleDisableSubmitButton] = useState(true)
+
+    useEffect(() => {
+        fetchVacancies()
+            .then((vacancies) => {
+                setVacanciesAction(vacancies.data)
+            })
+            .catch((error) => {
+                fetchErrorHandler(error)
+            })
+    }, [])
 
     useEffect(() => {
         checkFilledPhone(phone)
@@ -72,15 +88,7 @@ const Form = () => {
         applyCheckboxState,
     ])
 
-    const options = [
-        { label: 'водитель', id: 1 },
-        { label: 'кассир', id: 2 },
-        { label: 'пекарь', id: 3 },
-        { label: 'повар', id: 4 },
-        { label: 'приемщик', id: 5 },
-        { label: 'продавец', id: 6 },
-        { label: 'товаровед', id: 7 },
-    ]
+    const options = vacancies
 
     function onChange() {
         setClickOnCaptha(true)
@@ -149,7 +157,7 @@ const Form = () => {
 
             let data = new FormData()
             const selectedVacancie = options.find(
-                (opt) => opt.label === vacancy
+                (opt) => opt?.header === vacancy
             )
             data.append('vacancy_id', selectedVacancie.id)
             data.append('fio', fio)
@@ -223,8 +231,8 @@ const Form = () => {
                                                 </option>
                                             )}
                                             {options.map((opt) => (
-                                                <option key={opt.label}>
-                                                    {opt.label}
+                                                <option key={opt?.header}>
+                                                    {opt?.header}
                                                 </option>
                                             ))}
                                         </select>
@@ -556,4 +564,19 @@ const Form = () => {
     )
 }
 
-export default Form
+Form.propTypes = {
+    vacancies: PropTypes.array,
+    setVacanciesAction: PropTypes.func,
+}
+
+const mapStateToProps = ({ mainPageReducer }) => {
+    const { vacancies } = mainPageReducer
+
+    return {
+        vacancies,
+    }
+}
+
+export default connect(mapStateToProps, { setVacanciesAction: setVacancies })(
+    Form
+)
